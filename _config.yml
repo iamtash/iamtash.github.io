@@ -1,11 +1,11 @@
 # Site settings
 author: Natasha Chernis
-title: 
+title: Coding with 4GB of RAM
 header-img: img/home-bg.png
 email: natashachernis@gmail.com
 copyright_name: Natasha Chernis
 description: > # this means to ignore newlines until "baseurl:"
-  
+  The chronicles of a Texan learning to code on an ancient MacBook Air
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  iamtash
