@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "More like, why Wouldn't you Want to be a Software Engineer?"
+title:      "More Like, Why Wouldn't You Want to Be a Software Engineer?"
 date:       2019-05-09 11:27:26 -0400
 permalink:  more_like_why_wouldnt_you_want_to_be_a_software_engineer
 ---
