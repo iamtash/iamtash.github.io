@@ -57,7 +57,7 @@ git push –u origin master
 ```
 This magically sends your work to your repo that lives in GitHub -- Go!. If you’re a newbie like me, you get a thrill from refreshing the repo page and seeing the new code!
 
-The other major aggravator of the set-up headache was structuring and understanding all of the files with respect to their organization, purpose, and interaction. Obviously < bundle gem > did a lot of this for me, but I suspect only a programmer can get their program to actually work. The coding I have done thus far has familiarized me with the purpose of ./bin and ./lib; bin is responsible for running your program, and lib houses files that contain the meat of the program, in this case, a .rb file for each of my three classes. This was still true for the gem repo, with some slight additional complexities.
+The other major aggravator of the set-up headache was structuring and understanding all of the files with respect to their organization, purpose, and interaction. Obviously < 'bundle gem' > did a lot of this for me, but I suspect only a programmer can get their program to actually work. The coding I have done thus far has familiarized me with the purpose of ./bin and ./lib; bin is responsible for running your program, and lib houses files that contain the meat of the program, in this case, a .rb file for each of my three classes. This was still true for the gem repo, with some slight additional complexities.
 
 Once I added tidbits of functional code to my files, sorting out how the files would require each other was *shockingly* frustrating. To be honest, I was able to understand exactly what needed to be done within the files *in theory* by adding <require_relative ‘path’> lines, but what tripped me up was the path syntax. The file tree created by bundle gem was more nested than I was used to, so as the newbie that I am, I had to think about how to notate accordingly. After more trial & error, I am pleased to report that I was able to get the engine running.
 
@@ -69,15 +69,15 @@ Once I was poised to start churning out code, I found that I was able to apply p
 
 In fact, I would like to wrap up this post with acknowledgments to some concepts that, upon initial introduction, intimidated me, but are now powerful tools at my disposal.
 
-•	Methods, arguments, & helper methods
-•	Strings, Arrays, & Hashes
-•	Enumerators 
-•	Flow control
-•	Instance variables & methods
-•	Class variables & methods
-•	Self
-•	RegExp
-•	Nokogiri
+* Methods, arguments, & helper methods
+* Strings, Arrays, & Hashes
+* Enumerators 
+* Flow control
+* Instance variables & methods
+* Class variables & methods
+* Self
+* RegExp
+* Nokogiri
 
 Ruby, you da real MVP.
 
