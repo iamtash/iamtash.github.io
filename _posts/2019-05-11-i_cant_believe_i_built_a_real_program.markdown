@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "I Can't Believe I Built a Real Program"
-date:       2019-05-11 21:51:27 +0000
+date:       2019-05-11 17:51:28 -0400
 permalink:  i_cant_believe_i_built_a_real_program
 ---
 
@@ -11,6 +11,7 @@ It really happened. I started with a stark naked Atom window and, bit by bit, bu
 The process of creating a CLI data gem has been a journey not without headache. In fact, let’s dive into the very first and perhaps most memorable headache.
 
 Headache #1: Initial Setup
+
 The very first step of project set-up was running the following command in my terminal:
 
 ```
