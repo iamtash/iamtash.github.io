@@ -55,7 +55,7 @@ This commits changes and associates them with a message you type to describe the
 ```
 git push –u origin master
 ```
-This magically sends your work to your repo that lives in GitHub. If you’re a newbie like me, you get a thrill from refreshing the repo page and seeing the new code!
+This magically sends your work to your repo that lives in GitHub -- Go!. If you’re a newbie like me, you get a thrill from refreshing the repo page and seeing the new code!
 
 The other major aggravator of the set-up headache was structuring and understanding all of the files with respect to their organization, purpose, and interaction. Obviously <bundle gem> did a lot of this for me, but I suspect only a programmer can get their program to actually work. The coding I have done thus far has familiarized me with the purpose of ./bin and ./lib; bin is responsible for running your program, and lib houses files that contain the meat of the program, in this case, a .rb file for each of my three classes. This was still true for the gem repo, with some slight additional complexities.
 
