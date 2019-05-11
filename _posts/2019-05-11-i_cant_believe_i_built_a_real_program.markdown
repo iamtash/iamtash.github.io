@@ -32,7 +32,7 @@ Storing the repository locally allowed me to move it to its logical home and ope
 
 After plenty of trial & error, I eventually understood and could properly execute the steps to pushing the local repo to GitHub.
 
-1.  Change directories in bash to the new repo created by bundle gem.
+1.  Change directories in bash to the new directory created by bundle gem.
 ```
 cd /path/houston_dog_adoption
 ```
