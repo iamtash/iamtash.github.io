@@ -42,7 +42,6 @@ cd /path/houston_dog_adoption
 3. Embrace the very helpful instructions in the new empty GitHub repo for pushing code.
 
 4. Run the following commands in bash:
-
 ```
 git add ./path/Houston_dog_adoption
 ```
