@@ -70,6 +70,7 @@ Once I was poised to start churning out code, I found that I was able to apply p
 In fact, I would like to wrap up this post with acknowledgments to some concepts that, upon initial introduction, intimidated me, but are now powerful tools at my disposal.
 
 * Methods, arguments, & helper methods
+* Loops
 * Strings, Arrays, & Hashes
 * Enumerators 
 * Flow control
