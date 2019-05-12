@@ -67,7 +67,7 @@ This part of my experience has taught me that if you’re really struggling with
 
 Once I was poised to start churning out code, I found that I was able to apply pretty much everything we have learned thus far in both Procedural and Object-Oriented Ruby, which was awesome. Of course I got stuck and frustrated plenty of times, but ultimately I felt totally equipped to break down problems into pieces and leverage the concepts we’ve learned. 
 
-In fact, I would like to wrap up this post with acknowledgments to some concepts that, upon initial introduction, intimidated me, but are now powerful tools at my disposal.
+In fact, I would like to wrap up this post with acknowledgments of some concepts that, upon initial introduction, intimidated me, but are now powerful tools at my disposal.
 
 * Methods, arguments, & helper methods
 * Loops
@@ -77,6 +77,7 @@ In fact, I would like to wrap up this post with acknowledgments to some concepts
 * Instance variables & methods
 * Class variables & methods
 * Self
+* Abstraction
 * RegExp
 * Nokogiri
 
