@@ -65,7 +65,7 @@ During the initial set-up of my project, I felt pretty frustrated with the fact 
 
 This part of my experience has taught me that if you’re really struggling with something seemingly simple, chances are you are not alone, and it is definitely not a reflection of your capability. Doing something totally new to you is never easy, and it certainly gets easier with practice.
 
-Once I was poised to start churning out code, I found that I was able to apply pretty much everything we have learned thus far in both Procedural and Object-Oriented Ruby, which was awesome. Of course I got stuck and frustrated plenty of times, but ultimately I felt totally equipped to break down problems into pieces and leverage the concepts we’ve learned. 
+Once I was poised to start churning out code, I found that I was able to apply pretty much everything we have learned thus far in both Procedural and Object-Oriented Ruby, which was awesome. Of course I got stuck and frustrated plenty of times, but ultimately felt totally equipped to break down problems into pieces and leverage the concepts we’ve learned. 
 
 In fact, I would like to wrap up this post with acknowledgments of some concepts that, upon initial introduction, intimidated me, but are now powerful tools at my disposal.
 
