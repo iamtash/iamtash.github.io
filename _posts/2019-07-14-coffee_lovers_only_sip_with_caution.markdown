@@ -1,12 +1,13 @@
 ---
 layout: post
 title:      "Coffee Lovers Only: Sip with Caution"
-date:       2019-07-14 20:02:52 +0000
+date:       2019-07-14 16:02:53 -0400
 permalink:  coffee_lovers_only_sip_with_caution
 ---
 
 
 Of this project, the following was perhaps the most difficult block of code to write, because when a user sips a new cup, four different models with complex associations are involved, so making sure existing rows in the database aren’t duplicated or overwritten is a bit complicated.
+
 ```
 post '/cups' do
         if logged_in?
