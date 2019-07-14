@@ -42,13 +42,13 @@ post '/cups' do
 
 ```
 
-In the POST ‘/cups/’ route, the controller action that the form rendered by GET ‘/cups/new’ posts to upon submission, we start from the outermost level of the associated models and gradually build our way in, from Roaster, to Coffee, to Cup, to User. In this CupsController route, we are working with user input passed in by a params hash that is structured like this:
+In the `POST ‘/cups/’` route, the controller action that the form rendered by `GET ‘/cups/new’` posts to upon submission, we start from the outermost level of the associated models and gradually build our way in, from Roaster, to Coffee, to Cup, to User. In this CupsController route, we are working with user input passed in by a params hash that is structured like this:
 ```
 {"cup"=>{"brew"=>"Drip"}, "coffee"=>{"name"=>"intenso", "roast"=>"dark", "roaster_id"=>"10"}, "roaster"=>{"name"=>""}}
 
 ```
 
-First, we check to see if `params[:roaster][:name]` is blank, meaning the user did not 1) select the option to “post a new Roaster” and 2) fill in the corresponding text box with the name of a new Roaster. Because the new cup must belong to a coffee that in turn must belong to a roaster, if a new roaster was not selected, then an existing roaster must be selected. If this is not the case, `params[:coffee][:roaster_id]` would have a falsey value of `nil`, so the new cup form would be reloaded. Otherwise, when an existing roaster is selected (and a new roaster is not selected/posted), we will first see if there is an existing instance of Coffee in the database that matches the attributes that make up a valid Coffee instance – name, roast, and roaster_id; if this instance of Coffee doesn’t already exist, it will be instantiated with the attributes input by the user with this line of code:
+First, we check to see if `params[:roaster][:name]` is blank, meaning the user did not 1) select the option to “post a new Roaster” and 2) fill in the corresponding text box with the name of a new Roaster. Because the new cup must belong to a coffee that in turn must belong to a roaster, if a new roaster was not selected, then an existing roaster must be selected. If this is not the case, `params[:coffee][:roaster_id]` would have a falsey value of `nil`, so the new cup form would be reloaded. Otherwise, when an existing roaster is selected (and a new roaster is not selected/posted), we will first see if there is an existing instance of Coffee in the database that matches the attributes that make up a valid Coffee instance – *name*, *roast*, and *roaster_id*; if this instance of Coffee doesn’t already exist, it will be instantiated with the attributes input by the user with this line of code:
 ```
 @coffee = Coffee.find_or_initialize_by(name: normalize(params[:coffee][:name]), roast: params[:coffee][:roast], roaster_id: params[:coffee][:roaster_id])
 ```
