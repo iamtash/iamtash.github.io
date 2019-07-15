@@ -69,7 +69,7 @@ and if such a Coffee instance has not already been persisted, we will build one 
 
 In the latter case of the local variable `roaster`, we will still execute the above line of code. The only difference is a new instance of Coffee is being built off a new, un-persisted instance of Roaster.
 
-At this point, we have identified and/or built the instance of Coffee that our new cup will belong to, as well as the instance of Roaster that the instance of Coffee belongs to. The second to last attribute we need to build a valid instance of a Cup is the *brew* attribute, which we can pass into the Cup initialize method with this line of code and simultaneously assign the new cup to its corresponding coffee with this line of code:
+At this point, we have identified and/or built the instance of Coffee that our new cup will belong to, as well as the instance of Roaster that the instance of Coffee belongs to. The second to last attribute we need to build a valid instance of a Cup is the *brew* attribute, which we can pass into the Cup initialize method and simultaneously assign the new cup to its corresponding coffee with this line of code:
 ```
 @cup = @coffee.cups.build(params[:cup])
 ```
