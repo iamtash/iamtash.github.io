@@ -44,7 +44,9 @@ post '/cups' do
 
 In the `POST ‘/cups/’` route, the controller action that the form rendered by `GET ‘/cups/new’` posts to upon submission, we start from the outermost level of the associated models and gradually build our way in, from Roaster, to Coffee, to Cup, to User. In this CupsController route, we are working with user input passed in by a params hash that is structured like this:
 ```
-{"cup"=>{"brew"=>"Drip"}, "coffee"=>{"name"=>"intenso", "roast"=>"dark", "roaster_id"=>"10"}, "roaster"=>{"name"=>""}}
+{"cup"=>{"brew"=>"Drip"},
+ "coffee"=>{"name"=>"intenso", "roast"=>"dark", "roaster_id"=>"10"},
+ "roaster"=>{"name"=>""}}
 
 ```
 
