@@ -19,14 +19,13 @@ post '/cups' do
                 @coffee = Coffee.find_or_initialize_by(name: normalize(params[:coffee][:name]), roast: params[:coffee][:roast], roaster_id: params[:coffee][:roaster_id]) 
             else
                 roaster = Roaster.find_or_initialize_by(name: normalize(params[:roaster][:name]))
+                @coffee = nil
                 if roaster.persisted?
-                    if @coffee = roaster.coffees.find_by(name: normalize(params[:coffee][:name]), roast: params[:coffee][:roast])
-                    else
-                        @coffee = roaster.coffees.build(params[:coffee]) 
-                    end
-                else
+                    @coffee = roaster.coffees.find_by(name: normalize(params[:coffee][:name]), roast: params[:coffee][:roast])
+                end
+                if @coffee.nil?
                     @coffee = roaster.coffees.build(params[:coffee])
-                end 
+                end
             end
             
             @cup = @coffee.cups.build(params[:cup])
@@ -62,7 +61,7 @@ roaster = Roaster.find_or_initialize_by(name: normalize(params[:roaster][:name])
 
 So we will end up with the local variable `roaster` that either points to 1) an existing row in the roasters table in the database or 2) a brand new instance of a Roaster not yet associated with any coffees and not yet persisted to the database. If the former is true, we will check if a row already exists in the coffees table that matches `params[:coffee]` and belongs to the Roaster instance; 
 ```
-if @coffee = roaster.coffees.find_by(name: normalize(params[:coffee][:name]), roast: params[:coffee][:roast])
+@coffee = roaster.coffees.find_by(name: normalize(params[:coffee][:name]), roast: params[:coffee][:roast])
 ```
 and if such a Coffee instance has not already been persisted, we will build one off of the roaster with this method:
 ```
