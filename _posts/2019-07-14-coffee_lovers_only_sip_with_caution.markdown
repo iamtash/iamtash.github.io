@@ -48,7 +48,7 @@ In the `POST ‘/cups/’` route, the controller action that the form rendered b
 
 ```
 
-First, we check to see if `params[:roaster][:name]` is blank, meaning the user did not 1) select the option to “post a new Roaster” and 2) fill in the corresponding text box with the name of a new Roaster. Because the new cup must belong to a coffee that in turn must belong to a roaster, if a new roaster was not selected, then an existing roaster must be selected. If this is not the case, `params[:coffee][:roaster_id]` would have a falsey value of `nil`, so the new cup form would be reloaded. Otherwise, when an existing roaster is selected (and a new roaster is not selected/posted), we will first see if there is an existing instance of Coffee in the database that matches the attributes that make up a valid Coffee instance – *name*, *roast*, and *roaster_id*; if this instance of Coffee doesn’t already exist, it will be instantiated with the attributes input by the user with this line of code:
+First, we check to see if `params[:roaster][:name]` is blank, meaning the user did not 1) select the option to “post a new Roaster” and 2) fill in the corresponding text box with the name of a new Roaster. Because the new cup must belong to a coffee that in turn must belong to a roaster, if a new roaster was not selected, then an existing roaster must be selected. If this is not the case, `params[:coffee][:roaster_id]` would have a falsey value of `nil`, so the new cup form would be reloaded. Otherwise, when an existing roaster is selected (and new roaster is not selected), we will first see if there is an existing instance of Coffee in the database that matches the attributes that make up a valid Coffee instance – *name*, *roast*, and *roaster_id*; if this instance of Coffee doesn’t already exist, it will be instantiated with the attributes input by the user with this line of code:
 ```
 @coffee = Coffee.find_or_initialize_by(name: normalize(params[:coffee][:name]), roast: params[:coffee][:roast], roaster_id: params[:coffee][:roaster_id])
 ```
@@ -91,5 +91,5 @@ And finally take the user to view the new cup’s show page.
 redirect "/cups/#{@cup.id}"
 ```
 
-And there you have it, a valid ActiveRecord Cup instance, persisted to the database, poised for the user to edit or delete if they so please. 
+And there you have it, a valid ActiveRecord Cup object, persisted to the database, poised for the user to edit or delete if they so please. 
 
