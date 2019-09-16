@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Rails Project: CoffeeCups 2.0"
-date:       2019-09-16 03:42:59 +0000
+date:       2019-09-15 23:43:00 -0400
 permalink:  rails_project_coffeecups_2_0
 ---
 
@@ -61,22 +61,22 @@ This method, when called on a user, will first return (for method chaining) a co
 
 ```
 def self.compare_favorite_coffees(user) # returns users with similar taste in coffee to the current user
-        self.select {
-            |u| user.favorite_coffees.any? {
-                |coffee| u.favorite_coffees.include?(coffee)
-            }
-        }.reject {|u| u == current_user}
-    end
+      self.select {
+          |u| user.favorite_coffees.any? {
+              |coffee| u.favorite_coffees.include?(coffee)
+          }
+      }.reject {|u| u == current_user}
+end
 ```
 Given a user, this User Class method will return any other users that share any favorite coffees.
 
 ```
 def coffee_recommendations(similar_users) # returns a collection of coffees recommended for the user to try
-        similar_users.collect {|similar_user| similar_user.favorite_coffee
-        }.reject {|coffee| self.coffees.include?(coffee)}    
+      similar_users.collect {|similar_user| similar_user.favorite_coffee
+      }.reject {|coffee| self.coffees.include?(coffee)}    
 end
 ```
-Takes in the return value of the previous method (a collection of other users with similar taste) as an argument and iterates over the collection and returns their favorites coffes; by method chaining, this collection is voided of any coffees the user of interest has already tried.
+Takes in the return value of the previous method (a collection of other users with similar taste) as an argument and iterates over the collection to return their favorites coffes; by method chaining, this collection is voided of any coffees the user of interest has already tried.
 
 ```
 def make_recommendations(current_user) #runner method for users#show
@@ -85,7 +85,7 @@ def make_recommendations(current_user) #runner method for users#show
 ```
 I designed coffee recommendations to display on the user's show page, or the view that presents a feed of all of the cups a user has consumed. Since it is possible for a user to be either viewing their own show page, or Coffee Cups Profile, if you will, or someone else's Coffee Cups Profile, a user should only see their recommendations if they are viewing their own profile page.
 
-In the users#show action, the above method is called on the user whose profile is being viewed (this info is available from setting `@user = User.find_by(id: params[:id])`), and the code to generate coffee recommendations is only executed if `current_user`, which is passed in as an argument, is visiting their own user show page.
+In the `users#show` action, the above method is called on the user whose profile is being viewed (this info is available from setting `@user = User.find_by(id: params[:id])`), and the code to generate coffee recommendations is only executed if `current_user`, which is passed in as an argument, is visiting their own "profile".
 
 The resulting recommendations will be passed to the corresponding view as an instance variable and displayed for the user to see on their profile.
 `app/views/users/show.html.erb`
@@ -97,9 +97,9 @@ The resulting recommendations will be passed to the corresponding view as an ins
     </ul>
 <% end %>
 ```
-The partial I previously created for generating an HTML table to display on the Coffee Index page came in handy.
+A partial I previously created for generating an HTML table to display on the Coffee Index page came in handy.
 
-My logic of declaring users similar if they possess ANY common favorites is not in production, because if lots of users are sipping lots of cups and rating lots of coffees, it doesn't make sense for a user you share one favorite coffee with to be considered equally as similar to you as a user you share five similar coffees with. Recommendations of the latter user's other favorite coffees should be prioritized higher than the former.
+My logic of declaring users similar if they possess ANY common favorites would not be good in production, because if lots of users are sipping lots of cups and rating lots of coffees, it doesn't make sense for a user you share one favorite coffee with to be considered equally as similar to you as a user with whom you share five favorite coffees. Recommendations of the latter user's other favorite coffees should be prioritized higher than the former.
 
 Thus my next step with my ongoing, evolving project will be to implement logic in which other users are scored based on how many coffees were rated similarly, so that coffee recommendations derived from high scoring users can be prioritized . . . and also to add some JavaScript flare ;) .
 
