@@ -95,9 +95,9 @@ The resulting recommendations will be passed to the corresponding view as an ins
 ```
 <% if !@recs.empty? %>
     <h2>Coffees we recommend</h2>
-    <ul>
+    <table>
     <%= render collection: @recs, partial: 'coffees/coffee_tr', as: :coffee %>
-    </ul>
+    </table>
 <% end %>
 ```
 A partial I previously created for generating an HTML table to display on the Coffee Index page came in handy.
