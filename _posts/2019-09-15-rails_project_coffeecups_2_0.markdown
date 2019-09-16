@@ -65,7 +65,7 @@ def self.compare_favorite_coffees(user) # returns users with similar taste in co
           |u| user.favorite_coffees.any? {
               |coffee| u.favorite_coffees.include?(coffee)
           }
-      }.reject {|u| u == current_user}
+      }.reject {|u| u == user}
 end
 ```
 Given a user, this User Class method will return any other users that share any favorite coffees.
@@ -79,7 +79,7 @@ end
 Takes in the return value of the previous method (a collection of other users with similar taste) as an argument and iterates over the collection to return their favorites coffes; by method chaining, this collection is voided of any coffees the user of interest has already tried.
 
 ```
-def make_recommendations(current_user) #runner method for users#show
+def make_recommendations(current_user) # runner method for users#show
       self.coffee_recommendations(User.compare_favorite_coffees(self)) if self == current_user
 end
 ```
