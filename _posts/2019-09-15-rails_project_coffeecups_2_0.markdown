@@ -15,14 +15,14 @@ While overhauling my CoffeeCups app with Rails was *much* easier said than done,
 
 Let's dive in to the process of building a rating & recommendation feature:
 
-Step 1: First, I wrote in plain English what needed to be done.
+### Step 1: First, I wrote in plain English what needed to be done.
 
 1. Select coffees you rated 4 or 5.
 2. Identify other users who also rated the same coffees a 4 or 5.
 3. Identify other coffees the user(s) rated a 4 or 5 that you have not yet sipped or rated.
 4. Present recommendations.
 
-Step 2: Next, I checked to make sure all of my model associations were wired up correctly to make available the Active Record methods I would need.
+### Step 2: Next, I checked to make sure all of my model associations were wired up correctly to make available the Active Record methods I would need.
 
 ```
 class User < ApplicationRecord
@@ -50,7 +50,7 @@ class Rating < ApplicationRecord
 end
 ```
 
-Step 3: Write the logic in `app/models/user.rb`
+### Step 3: Write the logic in `app/models/user.rb`
 
 ```
 def favorite_coffees
@@ -84,7 +84,7 @@ def make_recommendations(current_user) #runner method for users#show
 end
 ```
 
-Step 4: Execute the logic in the controller and present the resulting coffee recommendations for the user to see.
+### Step 4: Execute the logic in the controller and present the resulting coffee recommendations for the user to see.
 
 I designed coffee recommendations to display on the user's show page, or the view that presents a feed of all of the cups a user has consumed. Since it is possible for a user to be either viewing their own show page, or Coffee Cups Profile, if you will, or someone else's Coffee Cups Profile, a user should only see their recommendations if they are viewing their own profile page.
 
