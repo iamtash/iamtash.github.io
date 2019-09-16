@@ -80,8 +80,8 @@ Takes in the return value of the previous method (a collection of other users wi
 
 ```
 def make_recommendations(current_user) #runner method for users#show
-        self.coffee_recommendations(User.compare_favorite_coffees(self)) if self == current_user
- end
+      self.coffee_recommendations(User.compare_favorite_coffees(self)) if self == current_user
+end
 ```
 
 Step 4: Execute the logic in the controller and present the resulting coffee recommendations for the user to see.
