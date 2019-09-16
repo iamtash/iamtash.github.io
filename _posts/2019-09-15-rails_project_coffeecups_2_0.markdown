@@ -93,7 +93,7 @@ In the `users#show` action, the above method is called on the user whose profile
 The resulting recommendations will be passed to the corresponding view as an instance variable and displayed for the user to see on their profile.
 `app/views/users/show.html.erb`
 ```
-<% if !@recs.empty? %>
+<% if @recs && !@recs.empty? %>
     <h2>Coffees we recommend</h2>
     <table>
     <%= render collection: @recs, partial: 'coffees/coffee_tr', as: :coffee %>
