@@ -83,6 +83,9 @@ def make_recommendations(current_user) #runner method for users#show
         self.coffee_recommendations(User.compare_favorite_coffees(self)) if self == current_user
  end
 ```
+
+Step 4: Execute the logic in the controller and present the resulting coffee recommendations for the user to see.
+
 I designed coffee recommendations to display on the user's show page, or the view that presents a feed of all of the cups a user has consumed. Since it is possible for a user to be either viewing their own show page, or Coffee Cups Profile, if you will, or someone else's Coffee Cups Profile, a user should only see their recommendations if they are viewing their own profile page.
 
 In the `users#show` action, the above method is called on the user whose profile is being viewed (this info is available from setting `@user = User.find_by(id: params[:id])`), and the code to generate coffee recommendations is only executed if `current_user`, which is passed in as an argument, is visiting their own "profile".
