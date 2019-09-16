@@ -13,7 +13,7 @@ For my first Rails project, I ported the same domain I used for my Sinatra proje
 
 While overhauling my CoffeeCups app with Rails was *much* easier said than done, from the end user viewpoint, the main noticeable difference is the new rating/recommendation feature. I built this feature to be as simple as possible with potential to incorporate more sophisticated algorithms and scaling in the foreseeable future.
 
-Let's dive in to the process of building a rating & recommendation feature:
+Let's dive into the process of building a rating & recommendation feature:
 
 ### Step 1: First, I wrote in plain English what needed to be done.
 
