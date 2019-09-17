@@ -87,7 +87,7 @@ The resulting collection is voided of any coffees the user of interest has alrea
 def make_recommendations(current_user) # runner method for users#show
   if self == current_user && !self.coffees.empty?
      self.coffee_recommendations(User.compare_favorite_coffees(self)) 
- end
+  end
 end
 ```
 
