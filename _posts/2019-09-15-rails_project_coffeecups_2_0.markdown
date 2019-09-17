@@ -71,22 +71,22 @@ end
 Given a user, this User Class method will return any other users that share any favorite coffees.
 
 ```
-def self.remove_coffees_already_tried
-     self.reject {|coffee| self.coffees.include?(coffee)}
-end
-
 def coffee_recommendations(similar_users) # returns a collection of coffees recommended for the user to try
      similar_users.collect {|similar_user| similar_user.favorite_coffees
      }.first
 end
+
+def remove_coffees_already_tried(coffees)
+     coffees.reject {|coffee| self.coffees.include?(coffee)}
+end
 ```
-In the above methods, the instance method takes in the return value of the previous class method (a collection of other users with similar taste) as an argument and iterates over the collection to return their favorites coffees.
-The resulting collection is voided of any coffees the user of interest has already tried by chaining (below) the class method above.
+In the above methods, the first takes in the return value of the previous class method (a collection of other users with similar taste) as an argument and iterates over the collection to return their favorites coffees.
+The resulting collection is passed to the second method to be voided of any coffees the user of interest has already tried, shown below.
 
 ```
 def make_recommendations(current_user) # runner method for users#show
   if self == current_user && !self.coffees.empty?
-     self.coffee_recommendations(User.compare_favorite_coffees(self)).remove_coffees_already_tried
+     remove_coffees_already_tried(self.coffee_recommendations(User.compare_favorite_coffees(self)))
   end
 end
 ```
