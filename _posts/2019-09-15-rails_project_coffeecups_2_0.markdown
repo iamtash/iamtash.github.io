@@ -61,11 +61,11 @@ This method, when called on a user, will first return (for method chaining) a co
 
 ```
 def self.compare_favorite_coffees(user) # returns users with similar taste in coffee to the current user
-    self.select {
-        |u| user.favorite_coffees.any? {
-            |coffee| u.favorite_coffees.include?(coffee)
-        }
-    }.reject {|u| u == user}
+      self.select {
+          |u| user.favorite_coffees.any? {
+              |coffee| u.favorite_coffees.include?(coffee)
+          }
+      }.reject {|u| u == user}
 end
 ```
 Given a user, this User Class method will return any other users that share any favorite coffees.
@@ -76,24 +76,24 @@ def self.remove_coffees_already_tried
 end
 
 def coffee_recommendations(similar_users) # returns a collection of coffees recommended for the user to try
-    similar_users.collect {|similar_user| similar_user.favorite_coffees
-    }.first
+      similar_users.collect {|similar_user| similar_user.favorite_coffees
+      }.first
 end
 ```
 Takes in the return value of the previous method (a collection of other users with similar taste) as an argument and iterates over the collection to return their favorites coffees.
-The resulting collection is voided of any coffees the user of interest has already tried by the class method defined above.
+The resulting collection is voided of any coffees the user of interest has already tried by chaining the class method defined above (below).
 
 ```
 def make_recommendations(current_user) # runner method for users#show
-   if self == current_user && !self.coffees.empty?
-      self.coffee_recommendations(User.compare_favorite_coffees(self)) 
-   end
+  if self == current_user && !self.coffees.empty?
+     self.coffee_recommendations(User.compare_favorite_coffees(self)).remove_coffees_already_tried
+  end
 end
 ```
 
 ### Step 4: Execute the logic in the controller and present the resulting coffee recommendations for the user to see.
 
-I designed coffee recommendations to display on the user's show page, or the view that presents a feed of all of the cups a user has consumed. Since it is possible for a user to be either viewing their own show page, or Coffee Cups Profile, if you will, or someone else's Coffee Cups Profile, a user should only see their recommendations if they are viewing their own profile page.
+I designed coffee recommendations to display on the user's show page, or the view that presents a feed of all of the cups a user has consumed. Since it is possible for a user to be either viewing their own show page, or Coffee Cups Profile, if you will, or someone else's Coffee Cups Profile, a user should only see their recommendations if they are viewing their own profile page. Additionally, the program will not attempt to find recommendations if a user has not yet sipped any cups of coffee, given that it would be tough to make comparisons or assumptions without any relevant data.
 
 In the `users#show` action, the above method is called on the user whose profile is being viewed (this info is available from setting `@user = User.find_by(id: params[:id])`), and the code to generate coffee recommendations is only executed if `current_user`, which is passed in as an argument, is visiting their own "profile".
 
