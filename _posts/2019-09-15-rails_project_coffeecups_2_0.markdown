@@ -72,7 +72,7 @@ Given a user, this User Class method will return any other users that share any 
 
 ```
 def self.remove_coffees_already_tried
-      self.reject {|coffee| self.coffees.include?(coffee)}
+    self.reject {|coffee| self.coffees.include?(coffee)}
 end
 
 def coffee_recommendations(similar_users) # returns a collection of coffees recommended for the user to try
@@ -85,9 +85,9 @@ The resulting collection is voided of any coffees the user of interest has alrea
 
 ```
 def make_recommendations(current_user) # runner method for users#show
-     if self == current_user && !self.coffees.empty?
-         self.coffee_recommendations(User.compare_favorite_coffees(self)) 
-		end
+  if self == current_user && !self.coffees.empty?
+     self.coffee_recommendations(User.compare_favorite_coffees(self)) 
+ end
 end
 ```
 
