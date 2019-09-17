@@ -61,11 +61,11 @@ This method, when called on a user, will first return (for method chaining) a co
 
 ```
 def self.compare_favorite_coffees(user) # returns users with similar taste in coffee to the current user
-      self.select {
-          |u| user.favorite_coffees.any? {
-              |coffee| u.favorite_coffees.include?(coffee)
-          }
-      }.reject {|u| u == user}
+    self.select {
+        |u| user.favorite_coffees.any? {
+            |coffee| u.favorite_coffees.include?(coffee)
+        }
+    }.reject {|u| u == user}
 end
 ```
 Given a user, this User Class method will return any other users that share any favorite coffees.
@@ -76,8 +76,8 @@ def self.remove_coffees_already_tried
 end
 
 def coffee_recommendations(similar_users) # returns a collection of coffees recommended for the user to try
-      similar_users.collect {|similar_user| similar_user.favorite_coffees
-      }.first
+    similar_users.collect {|similar_user| similar_user.favorite_coffees
+    }.first
 end
 ```
 Takes in the return value of the previous method (a collection of other users with similar taste) as an argument and iterates over the collection to return their favorites coffees.
@@ -85,9 +85,9 @@ The resulting collection is voided of any coffees the user of interest has alrea
 
 ```
 def make_recommendations(current_user) # runner method for users#show
-  if self == current_user && !self.coffees.empty?
-     self.coffee_recommendations(User.compare_favorite_coffees(self)) 
-  end
+   if self == current_user && !self.coffees.empty?
+      self.coffee_recommendations(User.compare_favorite_coffees(self)) 
+   end
 end
 ```
 
