@@ -80,8 +80,8 @@ def coffee_recommendations(similar_users) # returns a collection of coffees reco
       }.first
 end
 ```
-Takes in the return value of the previous method (a collection of other users with similar taste) as an argument and iterates over the collection to return their favorites coffees.
-The resulting collection is voided of any coffees the user of interest has already tried by chaining the class method defined above (below).
+In the above methods, the instance method takes in the return value of the previous class method (a collection of other users with similar taste) as an argument and iterates over the collection to return their favorites coffees.
+The resulting collection is voided of any coffees the user of interest has already tried by chaining (below) the class method above.
 
 ```
 def make_recommendations(current_user) # runner method for users#show
