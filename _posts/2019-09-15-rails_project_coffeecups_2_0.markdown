@@ -73,7 +73,7 @@ Given a user, this User Class method will return any other users that share any 
 ```
 def coffee_recommendations(similar_users) # returns a collection of coffees recommended for the user to try
       similar_users.collect {|similar_user| similar_user.favorite_coffees
-      }.reject {|coffee| self.coffees.include?(coffee)}.first
+      }.first.reject {|coffee| self.coffees.include?(coffee)}
 end
 ```
 Takes in the return value of the previous method (a collection of other users with similar taste) as an argument and iterates over the collection to return their favorites coffes; by method chaining, this collection is voided of any coffees the user of interest has already tried.
