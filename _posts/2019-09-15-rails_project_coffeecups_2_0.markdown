@@ -77,7 +77,7 @@ def coffee_recommendations(similar_users) # returns a collection of coffees reco
 end
 
 def remove_coffees_already_tried(coffees)
-     coffees.reject {|coffee| self.coffees.include?(coffee)}
+     coffees.reject {|coffee| self.coffees.include?(coffee)} if coffees
 end
 ```
 In the above methods, the first takes in the return value of the previous class method (a collection of other users with similar taste) as an argument and iterates over the collection to return their favorites coffees.
