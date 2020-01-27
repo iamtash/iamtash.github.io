@@ -7,7 +7,7 @@ permalink:  react-redux_go_with_the_flow
 
 In my most recent project, which happens to be my final portfolio project for the Flatiron School Software Engineering Program, I had the pleasure of building a React-Redux frontend backed by a Rails API. I decided to take a stab at building a rough draft of what could eventually become my portfolio website. Over the course of the last section of the curriculum, I found myself struggling to grasp the big picture of React and how and why the Redux pattern worked. Building this project helped me wrap my head around these tools in a way I could not have gotten from anything else. 
 
-I will break down an example of React-Redux flow from my project, and though it may seem like a lot, I'm pretty sure it is so many orders of magnitude less than the Vanilla JavaScript eqivalent.
+I will break down an example of React-Redux flow from my project, and though it may seem like a lot, I'm pretty sure it is so many orders of magnitude less than the Vanilla JavaScript equivalent.
 
 Users visiting my site have the option of 'liking' my projects, which looks like this.
 
