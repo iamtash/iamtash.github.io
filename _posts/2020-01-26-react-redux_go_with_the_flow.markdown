@@ -51,7 +51,7 @@ First, we declare 1) a new state variable called `disabled` initially set to `fa
 
 Enter Redux. The component is wrapped in `connect()` whose second argument is the action creator `likeProject `. `connect()` passes in the dispatch function to `mapDispatchToProps`, giving the component access to the prop `likeProject` that will execute `dispatch(likeProject())` when called. The event handler additionally passes in the `id` of the project, which is available via `props`, to the action dispatch.
 
-So what exactly happens when our event handler function calls `props.likeProject(props.id)`? Liking the project involves some asynchronous communication with the server, i.e. we want the like to be persisted to the database such that the row that represents the project internalizes the new like. This means we have to do a bit more than just dispatch an action to our reducer to update the Redux store.
+So what exactly happens when our event handler function calls `props.likeProject(props.id)`? Liking the project involves some asynchronous communication with the server, i.e., we want the like to be persisted to the database such that the row that represents the project internalizes the new like. This means we have to do a bit more than just dispatch an action to our reducer to update the Redux store.
 
 Enter Thunk. Redux-Thunk middleware allows us to not only return a function inside of our action creator instead of a POJO, but it passes that function our dispatch function as an argument. This sets us up to dispatch actions however many times and in whatever order we want. 
 ```
@@ -128,7 +128,7 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps)(ProjectsContainer)
 ```
-. . . and passes it down to child components 
+. . . and starts the relay of prop passing to child components 
 ```
 <ProjectsContainer 
     <Projects projects={projects} 
@@ -140,7 +140,7 @@ export default connect(mapStateToProps)(ProjectsContainer)
 
 // pseudo JSX to convey chain of passing props to children
 ```
-. . . will effectively pass down updated `props`. And the `AdminProjectCard` component where it all began will undergo a change in `props`, which will trigger a re-render from React to reflect any changes to the DOM -- in this case "Likes: 2" will change to "Likes: 3". 
+. . . will effectively pass down updated `props` until the `GuestProjectCard` component where it all began undergoes a change in `props`, which will trigger a re-render from React to reflect any changes to the DOM -- in this case "Likes: 2" will change to "Likes: 3". 
 
-Ten months of part-time bootcamp later, I can break a like button down like nobody's business. 
+And with that, we have made it full circle thanks to React and Redux. 
 
