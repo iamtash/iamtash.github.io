@@ -127,14 +127,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(ProjectsContainer)
-
-<ProjectsContainer 
-    <Projects projects={projects} 
-        <ProjectContainer key={project.id} project={project} 
-            <AdminProjectCard {...project} />
-        />
-    />
-/>
 ```
 . . . and passes it down to child components 
 ```
