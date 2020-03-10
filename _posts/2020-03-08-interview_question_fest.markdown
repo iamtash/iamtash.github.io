@@ -28,5 +28,9 @@ I didn’t know what my interviewer was referring to because even though I have 
 
 6. What is an alternative to using promises to handle asynchronous requests?
 
+7. What is a web worker?
+
+8. What is the call stack?
+
 More to come.
 
